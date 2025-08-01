@@ -1,2 +1,2 @@
-# terraform-mist-modules
-Terraform Modules for Mist - Jira SCM-10273
+# Modules for the Terraform Juniper Mist Provider
+
