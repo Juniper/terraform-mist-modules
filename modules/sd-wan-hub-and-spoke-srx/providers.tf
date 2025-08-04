@@ -6,8 +6,3 @@ terraform {
     }
   }
 }
-
-provider "mist" {
-  host = "api.mist.com"
-  #apitoken = "" # Not used here. MIST_API_TOKEN environment variable is used instead.
-}
