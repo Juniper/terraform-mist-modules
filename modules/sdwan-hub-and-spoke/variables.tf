@@ -1,6 +1,7 @@
 variable "org_id" { # Mandatory
   type        = string
   description = "Target Juniper Mist organization ID for all automation operations"
+  nullable = false
   validation {
     condition     = can(regex("^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$", var.org_id)) # Must have UUID length and structure
     error_message = "Not a valid string for Mist org's ID"
@@ -80,7 +81,7 @@ variable "hub_profiles" {
     path_preferences = any
     service_policies = any
     routing_policies = any
-    bgp_config = any
+    bgp_config       = any
   }))
   description = "Device profiles definitions to be applied to WAN Edge hub devices"
 }
@@ -95,7 +96,7 @@ variable "edge_template" {
       ip      = string
       netmask = string
     }))
-    dhcpd_config = any
+    dhcpd_config     = any
     path_preferences = any
     service_policies = any
   }))
@@ -104,11 +105,10 @@ variable "edge_template" {
 
 variable "switch_template" {
   type = map(object({
-    name = string
+    name        = string
     switch_mgmt = any
-    networks = any
+    networks    = any
     port_usages = any
-    # disabled_system_defined_port_usages = any
     switch_matching = any
   }))
   description = "Org level network templates for switches"
@@ -116,10 +116,10 @@ variable "switch_template" {
 
 variable "inventory" {
   type = map(object({
-    name = string
-    type = string
-    hub_device_profile = string
-    site_id = string
+    name                   = string
+    type                   = string
+    hub_device_profile     = string
+    site_id                = string
     unclaim_when_destroyed = bool
   }))
   description = "Definition of all devices (WAN gateways – hubs and spokes, and switches)"

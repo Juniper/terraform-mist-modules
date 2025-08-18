@@ -21,6 +21,6 @@ resource "mist_site_setting" "this" {
   vars     = each.value.vars
   gateway_mgmt = {
     root_password = var.root_password
-    app_usage = true # Enable App Track license on site level
+    app_usage     = true # Enable App Track license on site level
   }
 }
